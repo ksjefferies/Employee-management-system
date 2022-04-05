@@ -6,8 +6,8 @@ const dbModification = require('./lib/dbModification');
 // const { exit } = require('process');
 
 // Prompt user for initial responses
-const promptUser = () => {
-    inquirer.prompt([
+const promptUser = async () => {
+    const answer = await inquirer.prompt([
         {
             type: 'list',
             name: 'selection',
@@ -21,20 +21,20 @@ const promptUser = () => {
                 ]
         }
     ])
-        .then((answer) => {
-            const { choices } = answer;
+    const { selection } = answer;
 
-            if (choices === 'View') {
-                userPrompts.viewMenu();
-            }
-            if (choices === 'Add') {
-                userPrompts.addMenu();
-            }
-            if (choices === 'Update') {
-                userPrompts.updateMenu();
-            }
-            if (choices === 'No futher action needed') {
-                exit;
-            }
-        })
+    if (selection === 'View') {
+        userPrompts.viewMenu();
+    }
+    if (selection === 'Add') {
+        userPrompts.addMenu();
+    }
+    if (selection === 'Update') {
+        userPrompts.updateMenu();
+    }
+    if (selection === 'No futher action needed') {
+        exit;
+    }
 };
+
+promptUser();
