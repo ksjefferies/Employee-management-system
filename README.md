@@ -4,7 +4,8 @@
 ## Table of Content
 
 - [Description](#description)
-- [Image](#image)
+- [Installation](#installation)
+- [Media](#media)
 - [GitHub Repository](#github-repository)
 - [Author](#author)  
 - [Contributors](#contributors)
@@ -14,18 +15,32 @@
 -------
 ## Description:  
 
-<!-- The Note Taker (TNT) is an application that can be used to write and save notes. This application uses an Express.js back end and will save and retrieve note data from a JSON file. -->
+The Employee Management and Tracking System is a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
 -------
-## Image:
+## Installation:
 
-<!-- ![Image of deployed Employee Tracker page](./assets/images/note-taker.jpg) -->
+- Clone the repository to your local machine
+- Install local dependencies
+    * Install npm: 'npm install'
+    * Install express: 'npm install express'
+- Right click on 'package.json' and select open integrated terminal
+- Enter 'npm userPrompts.js' and the application will start
+- Follow the prompts to perform the action desired.
+
+------
+## Media:
+
+![Image of Employee Management and Tracking System](./assets/images/EMTS.jpg)
+
+Video of Employee Management and Tracking System:
+
+- [Media of Employee Management and Tracking System Usage]()
 
 ----
 ## Github Repository:
 
-<!-- - [Github Repository for Employee Tracker](https://github.com/ksjefferies/note-taker)
-- [Heroku Deployment](https://note-taker-2022-3.herokuapp.com/) -->
+- [Github Repository for Employee Management and Tracking System](https://github.com/ksjefferies/employee-management-and-tracking-system)
 
 ## Author:
 
@@ -34,14 +49,11 @@
 ## Contributors
 
 - Eugene Ahn
-- Daniel Norred
 
 ## Technologies Used:
-<!-- - Javascript
-- HTML / CSS
+- Javascript
 - Node
 - [Express.js](https://expressjs.com/)
-- [UUID](https://www.npmjs.com/package/uuid) -->
 
 ## License:
 
