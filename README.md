@@ -37,6 +37,16 @@ Video of Employee Management and Tracking System:
 
 - [Media of Employee Management and Tracking System Usage](https://drive.google.com/file/d/18ILLdCLaQtHmYdw15u0e8NjVJpMnBDUj/view?usp=sharing)
 
+
+
+
+https://user-images.githubusercontent.com/97249322/162091148-863e92e4-733a-47f6-bc74-54dcd751c0a3.mp4
+
+
+
+
+
+
 ----
 ## Github Repository:
 
