@@ -35,7 +35,7 @@ The Employee Management and Tracking System is a command-line application to man
 
 Video of Employee Management and Tracking System:
 
-- [Media of Employee Management and Tracking System Usage]()
+- [Media of Employee Management and Tracking System Usage](https://drive.google.com/file/d/18ILLdCLaQtHmYdw15u0e8NjVJpMnBDUj/view?usp=sharing)
 
 ----
 ## Github Repository:
