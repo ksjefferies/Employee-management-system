@@ -20,6 +20,7 @@ const promptUser = async () => {
 
     const { selection } = answer;
 
+    // Determine answer to call appropriate menu selection
     if (selection === 'View') {
         viewMenu();
     }
@@ -36,7 +37,7 @@ const promptUser = async () => {
 };
 
 const viewMenu = async () => {
-
+// View menu with all submenus and functions
     const answer = await inquirer.prompt([
         {
             type: 'list',
@@ -73,6 +74,7 @@ const viewMenu = async () => {
 
 const addMenu = async () => {
 
+    // Add menu with submenus and functions
     const answer = await inquirer.prompt([
         {
             type: 'list',
@@ -162,6 +164,7 @@ const addMenu = async () => {
     };
 };
 
+// Update menu and functions
 const updateMenu = async () => {
     console.table(await dbInfo.employee.get());
 
@@ -190,4 +193,5 @@ const usermodification = {
     updateMenu: updateMenu
 };
 
+// Initiate menu call
 promptUser();
