@@ -58,7 +58,7 @@ https://user-images.githubusercontent.com/97249322/162091148-863e92e4-733a-47f6-
 
 ## Contributors
 
-- Eugene Ahn
+- [Eugene](https://github.com/eugene125)
 
 ## Technologies Used:
 - Javascript
