@@ -1,4 +1,4 @@
-# Employee Management and Tracking System
+# Employee Management System
 
 -------
 ## Table of Content
@@ -15,7 +15,7 @@
 -------
 ## Description:  
 
-The Employee Management and Tracking System is a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
+The Employee Management System is a command-line application to manage a company's employee database, using Node.js, Inquirer, and MySQL.
 
 -------
 ## Installation:
@@ -31,12 +31,12 @@ The Employee Management and Tracking System is a command-line application to man
 ------
 ## Media:  
 
-![Image of Employee Management and Tracking System](./assets/images/EMTS.jpg)
+![Image of Employee Management System](./assets/images/EMTS.jpg)
 
 -----
-Video of Employee Management and Tracking System:
+Video of Employee Management System:
 
-- [Media of Employee Management and Tracking System Usage](https://drive.google.com/file/d/18ILLdCLaQtHmYdw15u0e8NjVJpMnBDUj/view?usp=sharing)
+- [Media of Employee Management System Usage](https://drive.google.com/file/d/18ILLdCLaQtHmYdw15u0e8NjVJpMnBDUj/view?usp=sharing)
 
 
 https://user-images.githubusercontent.com/97249322/162091148-863e92e4-733a-47f6-bc74-54dcd751c0a3.mp4
@@ -45,7 +45,7 @@ https://user-images.githubusercontent.com/97249322/162091148-863e92e4-733a-47f6-
 ----
 ## Github Repository:
 
-- [Github Repository for Employee Management and Tracking System](https://github.com/ksjefferies/employee-management-and-tracking-system)
+- [Github Repository for Employee Management System](https://github.com/ksjefferies/employee-management-system)
 
 ## Author:
 
