@@ -3,110 +3,85 @@ const inquirer = require('inquirer');
 
 // Prompt user for initial responses
 const promptUser = async () => {
-    const answer = await inquirer.prompt([
-        {
-            type: 'list',
-            name: 'selection',
-            message: 'Please select one of the following to perform an action',
-            choices:
-                [
-                    'View',
-                    'Add',
-                    'Update',
-                    'No futher action needed'
-                ]
-        }
-    ]);
+    const { selection } = await inquirer.prompt([{
+        type: 'list',
+        name: 'selection',
+        message: 'Please select one of the following to perform an action',
+        choices: Object.keys(mainMenuOptions)
+    }]);
 
-    const { selection } = answer;
-
-    // Determine answer to call appropriate menu selection
-    if (selection === 'View') {
-        viewMenu();
-    }
-    if (selection === 'Add') {
-        addMenu();
-    }
-    if (selection === 'Update') {
-        updateMenu();
-    }
-    if (selection === 'No futher action needed') {
-        await dbInfo.close()
-        return;
-    }
+    await mainMenuOptions[selection]();
 };
 
+// Main Menu Options
+const mainMenuOptions = {
+    'View': viewMenu,
+    'Add': addMenu,
+    'Update': updateMenu,
+    'Exit': dbInfo.close
+};
+
+// View menu
 const viewMenu = async () => {
-// View menu with all submenus and functions
-    const answer = await inquirer.prompt([
-        {
-            type: 'list',
-            name: 'selection',
-            message: 'Please select action you wish to perform',
-            choices:
-                [
-                    'View all Departments',
-                    'View all Roles',
-                    'View all Employees',
-                    'Return to previous menu'
-                ]
-        }
-    ]);
+    const { selection } = await inquirer.prompt([{
+        type: 'list',
+        name: 'selection',
+        message: 'Please select action you wish to perform',
+        choices: Object.keys(viewMenuOptions)
+    }]);
 
-    const { selection } = answer;
+    await viewMenuOptions[selection]();
+};
 
-    if (selection === 'View all Departments') {
-        console.table(await dbInfo.department.get());
-        viewMenu();
-    };
-    if (selection === 'View all Roles') {
+// View Menu Options
+const viewMenuOptions = {
+    'View all Departments': async () => {
+        console.table(await dbInfo.department.get())
+        await viewMenu()
+    },
+    'View all Roles': async () => {
         console.table(await dbInfo.roles.get());
         viewMenu();
-    };
-    if (selection === 'View all Employees') {
+    },
+    'View all Employees': async () => {
         console.table(await dbInfo.employee.get());
         viewMenu();
-    };
-    if (selection === 'Return to previous menu') {
+    },
+    'Return to previous menu': async () => {
         promptUser();
-    };
+    }
 };
 
+// Add Menu
 const addMenu = async () => {
 
-    // Add menu with submenus and functions
-    const answer = await inquirer.prompt([
+    const { selection } = await inquirer.prompt([
         {
             type: 'list',
             name: 'selection',
             message: 'Please select action you wish to perform',
-            choices:
-                [
-                    'Add Department',
-                    'Add Role',
-                    'Add Employee',
-                    'Return to previous menu'
-                ]
-        }
-    ]);
+            choices: Object.keys(addMenuOptions)
+        }]);
 
-    const { selection } = answer;
+    await addMenuOptions[selection]();
+};
 
-    if (selection === 'Add Department') {
+// Add Menu Options
+const addMenuOptions = {
+    'Add Department': async () => {
         const answer = await inquirer.prompt([
             {
                 type: 'input',
                 name: 'addDept',
                 message: 'What department would you like to add?',
-            }
-        ]);
+            }]);
 
         const { addDept } = answer;
         dbInfo.department.add(addDept);
-        addMenu();
-    };
 
-    if (selection === 'Add Role') {
+        addMenu();
+    },
+    'Add Role': async () => {
         const answer = await inquirer.prompt([
             {
                 type: 'input',
@@ -122,15 +97,14 @@ const addMenu = async () => {
                 type: 'input',
                 name: 'department_id',
                 message: 'What is the department ID for this Role?',
-            }
-        ]);
+            }]);
 
         const { title, salary, department_id } = answer;
         dbInfo.roles.add(title, salary, department_id);
-        addMenu();
-    };
 
-    if (selection === 'Add Employee') {
+        addMenu();
+    },
+    'Add Employee': async () => {
         const answer = await inquirer.prompt([
             {
                 type: 'input',
@@ -151,20 +125,19 @@ const addMenu = async () => {
                 type: 'input',
                 name: 'manager_id',
                 message: ' Employee Manager ID: ',
-            }
-        ]);
+            }]);
 
         const { first_name, last_name, role_id, manager_id } = answer;
         dbInfo.employee.add(first_name, last_name, role_id, manager_id);
-        addMenu();
-    };
 
-    if (selection === 'Return to previous menu') {
+        addMenu();
+    },
+    'Return to previous menu': async () => {
         promptUser();
-    };
+    }
 };
 
-// Update menu and functions
+// Update Menu and Options
 const updateMenu = async () => {
     console.table(await dbInfo.employee.get());
 
@@ -178,19 +151,12 @@ const updateMenu = async () => {
             type: 'input',
             name: 'role_id',
             message: 'Enter new Role ID for the employss'
-        }
-    ]);
+        }]);
 
     const { id, role_id } = answer;
     dbInfo.employee.update(id, role_id);
 
     promptUser();
-};
-
-const usermodification = {
-    viewMenu: viewMenu,
-    addMenu: addMenu,
-    updateMenu: updateMenu
 };
 
 // Initiate menu call
